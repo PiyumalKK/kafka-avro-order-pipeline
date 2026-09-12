@@ -26,7 +26,7 @@ docker compose ps
 ```
 ┌─────────────────────────┬─────────────────────────┐
 │  1. CONSUMER            │  3. Browser              │
-│     (live dashboard)    │     Kafka UI :8080       │
+│     (live dashboard)    │     Kafka UI :8090       │
 ├─────────────────────────┤                          │
 │  2. PRODUCER            │                          │
 └─────────────────────────┴──────────────────────────┘
@@ -166,8 +166,8 @@ If retries are slow to appear, stop the consumer and restart it turned up:
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-> "Twenty-seven unit tests covering the aggregation maths, the validation rules, the backoff
-> curve, the fact that permanent errors are never retried, and the DLQ header contract."
+> "Thirty-two unit tests covering the aggregation maths, the validation rules, the backoff
+> curve, the fact that permanent errors are never retried, and the DLQ header contract, including that offset 0 survives dead-lettering."
 
 ### Scene 10 — Close (20 s)
 

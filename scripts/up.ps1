@@ -17,5 +17,5 @@ if ($state -ne "healthy") { throw "Kafka did not become healthy in time." }
 Write-Host "Creating topics..." -ForegroundColor Cyan
 & .\.venv\Scripts\python.exe scripts\create_topics.py
 
-Write-Host "`nReady. Kafka UI: http://localhost:8080" -ForegroundColor Green
+Write-Host "`nReady. Kafka UI: http://localhost:8090" -ForegroundColor Green
 Pop-Location

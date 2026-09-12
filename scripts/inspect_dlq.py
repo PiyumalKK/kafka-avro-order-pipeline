@@ -46,12 +46,14 @@ def main() -> int:
     ctx = SerializationContext(settings.topic_orders, MessageField.VALUE)
 
     table = Table(title=f"Dead Letter Queue: {settings.topic_dlq}", expand=True)
-    table.add_column("src offset", justify="right")
-    table.add_column("order")
-    table.add_column("payload")
-    table.add_column("error type", style="red")
-    table.add_column("tries", justify="right")
-    table.add_column("reason", overflow="fold")
+    # overflow="fold" everywhere: the default is an ellipsis character that the
+    # Windows console renders as a replacement box.
+    table.add_column("offset", justify="right", overflow="fold")
+    table.add_column("order", overflow="fold")
+    table.add_column("payload", overflow="fold")
+    table.add_column("error type", style="red", overflow="fold", max_width=16)
+    table.add_column("n", justify="right", overflow="fold")
+    table.add_column("reason", overflow="fold", ratio=2)
 
     idle = 0.0
     count = 0

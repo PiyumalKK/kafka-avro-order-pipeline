@@ -81,7 +81,7 @@ python -m src.consumer.main
 python -m src.producer.main
 ```
 
-Kafka UI is at **http://localhost:8080** — use it to browse the `orders` and `orders.dlq`
+Kafka UI is at **http://localhost:8090** — use it to browse the `orders` and `orders.dlq`
 topics live, and to view the registered Avro schema.
 
 ---
@@ -94,7 +94,7 @@ This is the sequence to run during the demonstration. Roughly six minutes.
 |---|---|---|
 | 1 | `docker compose up -d` | Kafka, Schema Registry, Kafka UI coming up healthy |
 | 2 | `python scripts/create_topics.py` | Three topics: `orders`, `orders.retry`, `orders.dlq` |
-| 3 | Open http://localhost:8080 | Topics exist, both empty |
+| 3 | Open http://localhost:8090 | Topics exist, both empty |
 | 4 | Start consumer: `python -m src.consumer.main` | Dashboard renders, waiting at zero |
 | 5 | Start producer: `python -m src.producer.main` | Running average moves on every message |
 | 6 | Watch the consumer logs | Yellow `retrying in 0.4s` lines — **retry logic** |
@@ -102,7 +102,7 @@ This is the sequence to run during the demonstration. Roughly six minutes.
 | 8 | Kafka UI → `orders.dlq` → Messages | Headers carry the error type, offset, attempt count |
 | 9 | `python scripts/inspect_dlq.py` | Table of every dead letter with its reason |
 | 10 | Ctrl+C the consumer, restart it | Offsets resumed — **at-least-once, no data loss** |
-| 11 | `pytest` | 27 tests green |
+| 11 | `pytest` | 32 tests green |
 
 ### Forcing each behaviour on demand
 
@@ -220,7 +220,7 @@ kafka-avro-order-pipeline/
 ├── scripts/
 │   ├── create_topics.py        Idempotent topic creation
 │   └── inspect_dlq.py          Reads the DLQ and explains every failure
-├── tests/                      27 unit tests
+├── tests/                      32 unit tests
 └── docs/                       Architecture notes and report material
 ```
 

@@ -28,10 +28,16 @@ class DeadLetterPublisher:
         self.published = 0
 
     def publish(self, message: Message, error: Exception, *, attempts: int) -> None:
+        # Offset and partition 0 are both falsy, so these must be compared
+        # against None explicitly -- `or -1` would rewrite the first message
+        # of every partition to offset -1 and make it impossible to replay.
+        partition = message.partition()
+        offset = message.offset()
+
         headers = build_dlq_headers(
             source_topic=message.topic() or self._settings.topic_orders,
-            partition=message.partition() or 0,
-            offset=message.offset() or -1,
+            partition=partition if partition is not None else -1,
+            offset=offset if offset is not None else -1,
             error_type=type(error).__name__,
             error_message=str(error),
             attempts=attempts,
