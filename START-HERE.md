@@ -79,6 +79,7 @@ You do not need to understand every file. These are the ones that matter:
 START-HERE.md          <- this file
 README.md              <- the technical explanation (for your lecturer)
 docs/demo-script.md    <- YOUR SCRIPT for the demo. Very important.
+docs/theory.md         <- THE THEORY. Concepts explained, tied to this code.
 docs/architecture.md   <- why each decision was made (for the viva and report)
 
 schemas/order.avsc     <- the message shape the assignment specified
@@ -162,6 +163,12 @@ the answers. The most important ones:
 - *Why Avro and not JSON?* → Smaller messages, and the schema is enforced automatically.
 - *Why not retry everything?* → A broken message retried forever blocks everything behind it.
 - *Why jitter?* → So all the consumers don't retry at the same instant and crash the service again.
+
+### ☐ 4. Read the theory
+`docs/theory.md` explains the concepts properly — why Kafka is a log and not a queue, what the
+CAP theorem means, why Avro beats JSON, at-least-once vs exactly-once delivery, why jitter
+exists, and how all of it maps to the module learning outcomes. It ends with 20 questions you
+should be able to answer. If you only read one thing to *understand* the project, read that.
 
 **Optional:** the module also has a Mini Project Report. `docs/architecture.md` is written so
 you can reuse it — it covers the design decisions, the trade-offs, and a section on ethics,
