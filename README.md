@@ -19,6 +19,11 @@ updates live on screen. Anything that fails is routed by *why* it failed:
 - **Transient failure** (downstream unavailable) → retried with exponential backoff + jitter
 - **Permanent failure** (invalid price, empty product, undecodable bytes) → **Dead Letter Queue**
 
+![Architecture](docs/images/architecture.png)
+
+<details>
+<summary>Same diagram as Mermaid source</summary>
+
 ```mermaid
 flowchart LR
     P["Order Producer<br/><i>Avro serialize</i>"] -->|"orders"| K[("Kafka<br/>KRaft")]
@@ -38,6 +43,8 @@ flowchart LR
     style A fill:#efe,stroke:#3a3
     style K fill:#eef,stroke:#33c
 ```
+
+</details>
 
 ---
 
