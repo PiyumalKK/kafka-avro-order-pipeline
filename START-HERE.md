@@ -77,6 +77,7 @@ You do not need to understand every file. These are the ones that matter:
 
 ```
 START-HERE.md          <- this file
+RECORDING-STEPS.md     <- EXACT steps to record the demo. Follow top to bottom.
 README.md              <- the technical explanation (for your lecturer)
 docs/demo-script.md    <- YOUR SCRIPT for the demo. Very important.
 docs/theory.md         <- THE THEORY. Concepts explained, tied to this code.
