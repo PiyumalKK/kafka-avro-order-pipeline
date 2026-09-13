@@ -1,5 +1,40 @@
 # How to record the demo — exact steps
 
+## THE EASY WAY — let the script do everything
+
+If you do not want to type anything during the recording, use this.
+
+1. Make sure **Docker Desktop is running** (green whale icon, bottom left).
+2. Open PowerShell in this folder.
+3. Press `Win + Shift + S`, click the **video camera icon**, click **New**, drag over the
+   whole screen, click **Start**.
+4. Type this one command and press Enter:
+
+```powershell
+.\scriptsuto-demo.ps1
+```
+
+5. **Do nothing else.** It runs for about 6 minutes: it wipes the old data, opens the consumer
+   in a window on the left, sends orders, and prints a caption before every step explaining
+   what is happening. When it says *"Demo complete"*, stop the recording.
+
+To rehearse it at double speed first:
+
+```powershell
+.\scriptsuto-demo.ps1 -Fast
+```
+
+The captions replace narration, so the video works even with no microphone. If you *do* want
+to talk over it, turn the microphone on in the recording toolbar before pressing Start and
+read the "Say:" lines from Part B below.
+
+---
+
+## THE MANUAL WAY
+
+Everything below is the same demo done by hand, if you would rather control the pace.
+
+
 Follow this top to bottom. Do not skip Part A.
 
 Total time: 15 minutes preparation, 6 minutes recording.
