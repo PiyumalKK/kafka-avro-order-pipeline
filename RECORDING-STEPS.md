@@ -11,7 +11,7 @@ If you do not want to type anything during the recording, use this.
 4. Type this one command and press Enter:
 
 ```powershell
-.\scriptsuto-demo.ps1
+.\scripts\auto-demo.ps1
 ```
 
 5. **Do nothing else.** It runs for about 6 minutes: it wipes the old data, opens the consumer
@@ -21,7 +21,7 @@ If you do not want to type anything during the recording, use this.
 To rehearse it at double speed first:
 
 ```powershell
-.\scriptsuto-demo.ps1 -Fast
+.\scripts\auto-demo.ps1 -Fast
 ```
 
 The captions replace narration, so the video works even with no microphone. If you *do* want
